@@ -1,0 +1,28 @@
+\select@language {ngerman}
+\contentsline {chapter}{\numberline {1}Einleitung}{4}
+\contentsline {chapter}{\numberline {2}Rahmenbedingungen}{5}
+\contentsline {section}{\numberline {2.1}Begr\IeC {\"u}dung f\IeC {\"u}r die Wahl der T\IeC {\"a}tigkeit}{5}
+\contentsline {section}{\numberline {2.2}Art,Inhalt und Umfang der Bewerbung}{5}
+\contentsline {section}{\numberline {2.3}Vorstellung des Projekt: StanDAP-Herb}{5}
+\contentsline {chapter}{\numberline {3}Aufgaben der T\IeC {\"a}tigkeit}{6}
+\contentsline {section}{\numberline {3.1}Aufgabenzuteilung}{6}
+\contentsline {section}{\numberline {3.2}Aufgabenbeschreibung}{6}
+\contentsline {subsection}{\numberline {3.2.1}Visual Studio 2008 \& 2010}{6}
+\contentsline {subsection}{\numberline {3.2.2}OpenCV}{6}
+\contentsline {subsection}{\numberline {3.2.3}GUI-Steuerung}{6}
+\contentsline {subsection}{\numberline {3.2.4}XML-Analysierung}{6}
+\contentsline {subsection}{\numberline {3.2.5}Fuzzy Search}{6}
+\contentsline {subsection}{\numberline {3.2.6}Rest-Service}{6}
+\contentsline {subsection}{\numberline {3.2.7}Auto-Cut}{6}
+\contentsline {subsection}{\numberline {3.2.8}HSV Farbraume}{6}
+\contentsline {subsection}{\numberline {3.2.9}Segmentierung}{6}
+\contentsline {subsection}{\numberline {3.2.10}SVM-Klassifikator}{6}
+\contentsline {subsection}{\numberline {3.2.11}Automatischer Objekterkennung}{6}
+\contentsline {subsection}{\numberline {3.2.12}Json}{6}
+\contentsline {chapter}{\numberline {4}Zusammenfassung}{7}
+\contentsline {section}{\numberline {4.1}Erfahrungsgewinnen}{7}
+\contentsline {section}{\numberline {4.2}Auswirkungen auf die eigene Berufsvorstellung}{7}
+\contentsline {section}{\numberline {4.3}Bewertung der eigenen Leistungen}{7}
+\contentsline {section}{\numberline {4.4}R\IeC {\"u}ckmeldung des Arbeitgebers}{7}
+\contentsline {section}{\numberline {4.5}Zusammenfassung der T\IeC {\"a}tigkeit}{7}
+\contentsline {chapter}{\numberline {5}Literatur}{8}
