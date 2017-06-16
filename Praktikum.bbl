@@ -1,0 +1,57 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.8 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist[entry]{nty/global/}
+    \entry{1}{online}{}
+      \field{sortinit}{H}
+      \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
+      \field{labeltitlesource}{title}
+      \field{title}{Hier ist ein Eingang für diesen Projekt.}
+      \verb{url}
+      \verb http://wiki.bgbm.org/standapherb/index.php/Main_Page
+      \endverb
+    \endentry
+    \entry{2}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=c166d3d5c94afd3c8849e089b52ba084}{%
+           family={Kirchhoff},
+           familyi={K\bibinitperiod},
+           given={Agnes},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{c166d3d5c94afd3c8849e089b52ba084}
+      \strng{fullhash}{c166d3d5c94afd3c8849e089b52ba084}
+      \strng{authornamehash}{c166d3d5c94afd3c8849e089b52ba084}
+      \strng{authorfullhash}{c166d3d5c94afd3c8849e089b52ba084}
+      \field{sortinit}{K}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 18 August 2015]}
+      \field{title}{Herbarbeleg\_Objekte}
+      \field{year}{2015}
+      \verb{url}
+      \verb http://wiki.bgbm.org/standapherb/index.php/File:Herbarbeleg_Objekte.JPG
+      \endverb
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+
