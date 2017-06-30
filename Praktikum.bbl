@@ -19,6 +19,20 @@
 
 \refsection{0}
   \sortlist[entry]{nty/global/}
+    \entry{3}{online}{}
+      \field{sortinit}{}
+      \field{sortinithash}{495dc9894017a8b12cafa9c619d10c0c}
+      \verb{url}
+      \verb https://de.wikipedia.org/wiki/Visual_Studio
+      \endverb
+    \endentry
+    \entry{4}{online}{}
+      \field{sortinit}{}
+      \field{sortinithash}{495dc9894017a8b12cafa9c619d10c0c}
+      \verb{url}
+      \verb https://en.wikipedia.org/wiki/Support_vector_machine
+      \endverb
+    \endentry
     \entry{1}{online}{}
       \field{sortinit}{H}
       \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
@@ -49,6 +63,44 @@
       \field{year}{2015}
       \verb{url}
       \verb http://wiki.bgbm.org/standapherb/index.php/File:Herbarbeleg_Objekte.JPG
+      \endverb
+    \endentry
+    \entry{5}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=ddddf750991556b313ecedc6739fbde0}{%
+           family={Packt\bibnamedelima Publ.},
+           familyi={P\bibinitperiod\bibinitdelim P\bibinitperiod},
+           given={Birmingham\bibnamedelima [u.a.]},
+           giveni={B\bibinitperiod\bibinitdelim [\bibinitperiod}}}%
+      }
+      \strng{namehash}{ddddf750991556b313ecedc6739fbde0}
+      \strng{fullhash}{ddddf750991556b313ecedc6739fbde0}
+      \strng{authornamehash}{ddddf750991556b313ecedc6739fbde0}
+      \strng{authorfullhash}{ddddf750991556b313ecedc6739fbde0}
+      \field{sortinit}{P}
+      \field{sortinithash}{24100cef455d7974167575052c29146e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Mastering OpenCV with practical computer vision projects}
+      \field{year}{2012}
+    \endentry
+    \entry{7}{oline}{}
+      \name{author}{1}{}{%
+        {{hash=bf111e3622a72a3b5dc784b5903983ca}{%
+           family={Wiki},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{bf111e3622a72a3b5dc784b5903983ca}
+      \strng{fullhash}{bf111e3622a72a3b5dc784b5903983ca}
+      \strng{authornamehash}{bf111e3622a72a3b5dc784b5903983ca}
+      \strng{authorfullhash}{bf111e3622a72a3b5dc784b5903983ca}
+      \field{sortinit}{W}
+      \field{sortinithash}{6d25b3eefe5aa2147d1f339686808918}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{HSV-Farbraum}
+      \verb{url}
+      \verb https://de.wikipedia.org/wiki/HSV-Farbraum#/media/File:HSV_cone.png
       \endverb
     \endentry
   \endsortlist

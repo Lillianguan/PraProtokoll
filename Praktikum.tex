@@ -88,13 +88,14 @@ Im Rahmen des Projekt werden die Aufgaben von vier Mitarbeiten geteilt, meine T�
 
 \section{Aufgabenbeschreibung}
 
-Für weitere Details von meinen täglichen Aufgaben werden in der folgenden Abschnitten genauer beschreibt. 
+Für weitere Details von meinen täglichen Aufgaben werden in der folgenden Abschnitten genauer beschrieben. 
 
-\subsection{Visual Studio 2008 \& 2010}
-
+\subsection{Microsoft Visual Studio}
+Visual Studio ist eine für verschiedene Hochsprachen integrierte Entwicklungsumgebung, z.B. Visual Basic .Net, C, C++,C++/CLI, C++/CX, C\#, F\#, SQL Server, TypeScript und Python sowie HTML, JavaScript und CSS. Visual Studio ermöglicht es dem Programmierer, sowohl native Win32/Win64-Programme als auch Anwendungen für das .NET Framework zu entwickeln\cite{3}. Wir haben die Version 2008 und 2010 in Win32-Programme genutzt.
 \subsection{OpenCV}
-
+OpenCV (Open Source Computer Vision Library) ist eine freie Programmbibliothek, sie ist mit verschiedene Algorithmen für die Bildverarbeitung und Maschinelles Sehen zur Akademik und Kommerz unter eine BSD-Lizenz. Sie hat C++, C, Python und Java Oberflächen und unterstützt Windows, Linux, Mac OS, Android und IOS. Wir anwenden die Version 1.1, 2.1 und 2.4.10 für unsere Tätigkeiten.
 \subsection{GUI: Web-Lokal-Steuerung}
+
 
 \subsection{XML-Analysierung}
 
@@ -103,15 +104,83 @@ Für weitere Details von meinen täglichen Aufgaben werden in der folgenden Absc
 \subsection{Rest-Service}
 
 \subsection{Auto-Cut}
+Es gibt viele Objekte auf eine Herb-beleg, z.B. Barcode, Stampe, Typus…, die wir erkennen sollen. Eine Seite kann das ganze Bild in Server (OCR) laufen, um Informationen zu extrahieren, andere Seite, es ist auch wichtig, die einzeln Objekt in Server behandeln, damit kann die Anerkennungsquote zu erhöhen. Deswegen brauchen wir riesige Menge Ausschneiden von den Objekten.
+Um das Aus schneiden durchzuführen, müssen wir überlegen, wie es machen kann. Natürlich können wir das Ausschneiden manuell durch Paint oder GIMP erledigen, aber es ist offensichtlich, zeitaufwändig. Anstatt die Objekte aus Herb-Beleg selbst per Hand auszuschneiden, ist es nötig, ein kleines Programm zu entwickeln, damit kann man sehr effizient im kurzen Zeitraum viel Objekte erhalten. 
+Bild ist durch das Programm hochgeladen worden, und durch Maus das Objekt abzugrenzen, z.B. bei einem Barcode klicken wir mit der linken Maustaste auf den oben links Punkt und ziehen wir bei gedrückter Maustaste bis zum unten rechts Punkt, danach lassen wir die Maustaste los. Damit bekommen wir die Koordinaten von den beiden Punkten, schneiden die Rechtangle, die die Punkte bezüglich ist, aus.\\
+\begin{figure}[htbp] 
+	\centering
+	\includegraphics[width=0.5\textwidth]{Cutobjekte.png}
+	\caption{Objekte Belege}
+	\label{fig:Bild 2}
+\end{figure}\\
+Speichern sollen wir auch berücksichtigen, um die Objekte später direkt zum Anlernen genutzt zu werden. Brauchen wir Sortierung während Speichern, z.B. bei dem Objekt Barcode, drucken wir die Tastatur „3“, damit das Barcode würde automatisch im dritten Datei gespeichert werden. Die ausführlichen Informationen von „Objekt-Tastatur-Speicherdatei“  sind in folgende Tabelle gegeben, sehen Sie Abbildung 3.2.\\
+\begin{figure}[htbp] 
+	\centering
+	\includegraphics[width=0.7\textwidth]{Tabelle.png}
+	\caption{Objekt-Tastatur-Speicherdatei}
+	\label{fig:Tabelle 1}
+\end{figure}\\
+Der Tabelle zeigt genau bei welchem Objekt sollen wir welche Tastatur drucken, um das Objekt richtig zu speichern.
 
-\subsection{HSV Farbraume}
+\subsection{HSV-Farbraume}
+Der HSV-Farbraum ist ein Farbraum etlicher Farbmodelle, bei denen man kann die Farbe mit Hilfe des Farbwerts (englisch hue), der Farbsättigung (saturation) und des Hellwerts (oder der Dunkelstufe) (value) definieren(Abbildung 3.3) \cite{7}. Mit diese Objekte von Typus habe ich diese Farbraum Modell wegen ihrer speziellen Farbe, normalerweise sind die immer rot, angewendet. 
+\begin{figure}[htbp] 
+	\centering
+	\includegraphics[width=0.5\textwidth]{HSV_cone.png}
+	\caption{HSV-Farbraum als Kegel}
+	\label{fig:Bild 3}
+\end{figure}
 
 \subsection{Segmentierung}
+Ermittlung von Rechtangle ist der Prozess, ein Bild in multiple Segmentation zu trennen. Dieser Prozess dient dafür, Analysierung von Bild und Extraktion von Merkmal zu vereinfachen.\cite{5} 
+In unsere Situation ist das wichtige Merkmal von Segmentation vertikal Kante in dem Bild, der Merkmal kann ausgenutzt werden und die Regionen, die gar keine vertikale Kante haben, zu eliminieren. 
+Bevor Finden der vertikale Kante, sollen wir die mögliche Rausch mit Gaussian blur möglich viele entfernen. Um die vertikale Kante zu finden, haben wir uns die Sobel Filter entschieden. Weil mit diese Funktion können wir selbst Richtungsderivat definieren. 
+Nach Sobel Filter bieten wir eine Threshold Funktion, um das Bild zum Binary zu transformieren. Und danach durch Morphologische Operation können wir den Spalt zwischen Kante eliminieren und die andere nötige Kante verbinden. In unsere Situation liefert es bei der Dimension 41x30 ein gutes Ergebnis. Aber wir lassen das veränderbar, weil für uns die Bilder immer Variante ist, mit verschieden Leuchtdichte, verschiedenen Lokalisation der Objekten, manchmal sehr eng miteinander, manchmal gibt es genug Abstand zueinander, und natürlich mit verschiedenen Klarheit von den Objekten, deswegen hat die Dimension von morphologischer Operation sehr groß Beeinflusse, zu groß oder zu klein würden die Objektregionen nicht mehr finden können. Beispielweise die Abbildung 3.4).\\
+\begin{figure}[htbp] 
+	\centering
+	\includegraphics[width=0.5\textwidth]{SVMPre.png}
+	\caption{Verschneiende Bilder zu vergleichen}
+	\label{fig:Bild 4}
+\end{figure}\\
+Links Bild mit Dimension 41x30 ist für Stampe besser, aber recht Bild ist mit Dimension 80x45 ist für Mus.Bot.Berol besser. Man kann nicht nur mit einer bestimmten Dimension alles gewonnen.
+Konturen sollen dann mit dem resultierenden Bild gefunden werden. Damit erhalten wir aber viele Müll, deswegen sollen wir die Segmentation überprüfen. Mit definiertem Seitenverhältnis, In unsere Situation ist es 3.8 mit 40\% Fehlertoleranz, können wir Stampe, Barcode, Mus.Bot.Berol alle ausfinden. Die Richtung der Segmentation ist auch berüchtigt, d.h. die in beide Richtungen liegende Segmentation können herausgefunden werden.
+Für Typus ist nichts anderes als Stampe, Barcode, außerdem von Beginnen werden die HSV genutzt, weil der Typus ist alles rot oder ähnlich rot. Danach mit 5x5 Dimensionen morphologische Operation, und Seitverhältnis 2.5 mit 40 Fehlertoleranz.
+Die alle gefundenen möglichen Objektregionen würden auch sortiert, und parallel muss gespeichert werden. Z.B. Tastatur „0“ bezüglich auf nicht interessierte Objektregion, Tastatur „1“  bezüglich auf Stampe, Tastatur „2“ bezüglich auf Mus.Bot.Berol, und Tastatur „3“ bezüglich auf Barcode.  
+
 
 \subsection{SVM-Klassifikator}
+SVM ist eine Support Vector Machine, die als Klassifikator(vgl. Klassifizierung) und Regressor (vgl. Regressionsanalyse) dient. Eine SVM unterteilt eine Menge von Objekten so in Klassen, dass um die Klassengrenzen herum ein möglichst breiter Bereich frei von Objekten bleibt, sie ist ein sogenannter Large Margin Classifier (engl. „Breiter-Rand-Klassifikator“). SVMs können sowohl zur Regression als auch zur Klassifizierung verwendet werden\cite{4}.
+SVMs sind keine herkömmliche Maschinen zu verstehen. Die bestehen  nicht aus greifbaren Bauteilen, sondern handeln sie sich um ein rein mathematisches Verfahren der Mustererkennung, das in Computerprogrammen umgesetzt wird. Der Namensteil Machine weist dementsprechend das Herkunftsgebiet der Support Vector Machines, das maschinelle Lernen.
+In unsere Programm verwenden wir SVMs nur zur Klassifizierung, die darstellte Abbildung 3.5 zeigt, wie sollen wir die Objekte erkennen. In dem SVM Programm definieren wir drei wichtige Funktionsschritte, unser System zu trainieren.\\
+\begin{figure}[htbp] 
+	\centering
+	\includegraphics[width=0.5\textwidth]{SVM.png}
+	\caption{SVM Programm : Dieses ganze Prozesses beziehen sich auf das Programm sind Sobel Filter, Threshold Operation, Morphologic Operation, Find Contours, SVM Klassifikation, SVM Training.}
+	\label{fig:Bild 5}
+\end{figure}\\
+Die alle gespeicherten Objektregionen, sollen wir entscheiden, dass ob die gefundene Objektregion eine Stampe oder ein Barcode ist. Um dies zu erledigen, brauchen wir jetzt SVM Algorithmus. 
+Bevor der Klassifikation muss der Klassifikator mit Label trainiert werden, sog. Offline Training. In unsere Situation, wegen der vielen varianten Bilder brauchen wir eine ausreichende Menge Daten zu trainieren. D.h. je größer unsere Datenbank ist, umso kriegen wir besser Ergebnis. Deswegen brauchen wir zu mindesten ein paar tausend Herb-Beleg für Preprozessor und Segmentierung.
+SVM ist inhärent ein binärer Klassifikator, in unsere Situation, für Stampe, Barcode, Mus. Bot. Berol. bedürfen wir 4 Klasse, wir nutzten lineare Klassifikation. Es gibt viele Möglichkeiten zu trainieren, z.B. one-versus-rest(OVR SVMs), one-versus-one (OVO SVMs). Wir haben uns OVR SVMs entschieden, weil für uns ist es sehr schnell und unser System ist nicht kompliziert. Unser Prozess beruht sich auf die Bildpixels, sehen Sie in folgendem Bild(Abbildung 3.6).\\
+\begin{figure}[htbp] 
+	\centering
+	\includegraphics[width=0.7\textwidth]{Positivnegativ.png}
+	\caption{Positive Bilder und negative Bilder}
+	\label{fig:Bild 6}
+\end{figure}\\
+Klasse Stampen gegen die andere, Stampe werden mit positivem Label identifiziert, die andere wird mit negativem Label identifiziert. Barcode, Mus.Bot.Berol werden auch so trainiert. Dann die ganzen trainierten Daten  werden in eine XML Datei gespeichert.
+
+Nach dem Bekommen der trainierten Daten müssen wir jetzt die SVM Parametern definieren, um das SVM Algorithmus zu verwenden. In OpenCv ist es einfach, dass wir können einfach CvSVMParam direkt anrufen und die Parameter eingeben. Hier könnten wir auch die Parameter automatisch mal trainieren, um die besten Parametern zu erzielen. 
+Mit eingegebenen Parameters kann die Klassifikator trainieret werden. Danach ist es bereit zu Prognose von möglichen Objektregionen mit Predict Funktion. Falls wir positive Resultat erhalten, ist die Objektregion interessiert uns, negative Resultat, dann interessiert uns nicht. Somit können wir klassieren alle gefundenen möglichen Objektregionen mit der Rückmeldung von Prognose. Nur die mit dem positiven Prognose Objektregionen und auch deren Koordinaten werden gespeichert(Abbildung 3.6). \\
+\begin{figure}[htbp] 
+	\centering
+	\includegraphics[width=0.5\textwidth]{Svmresult.png}
+	\caption{Resultat von SVM Programm: Die Abbildung zeigt, wie das Resultat von SVM Programm im originalen Bild aussieht, die mit grünen Rechtangle eingehüllten Objekte sind die gefundenen Objekteregionen. Links ist für Typus, rechts ist für Stampe, Barcode, Mus.Bot.Berol.. Die gespeicherten Koordinaten werden weiter in andere Programm geliefert.
+	}
+	\label{fig:Bild 4}
+\end{figure}
 
 \subsection{Automatischer Objekterkennung}
-
+Um die Koordinaten auf Herb-Beleg zu erhalten, automatische Erkennung von den Objekten ist in der erste Linien.  Dieses Programm ist genau dafür gesorgt. Es beinhaltet Ermittlung von Objekt(Preprozessor), und Klassifikation von Objekte.  Das Ziel von Ermittlung dem Objekt ist es, die möglichen Objektregionen in ganzen Bildframe zu ermitteln. Falls eine Rechtangle wird ermittelt, die Rechtangle Segment wird in den zweite Schritt übertragt, mit SVM(Support Vector Machine) Algorithmus zu entscheiden, ob die Rechtangle richtig ist. Durch das Programm können die Koordinaten von Objekt automatisch geliefert werden. Die Koordinaten können später in andere Programm eingeben, um die Region automatisch zu ausschneiden. 
 \subsection{Json}
 
 \chapter{Zusammenfassung}

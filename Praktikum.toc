@@ -16,38 +16,38 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.2}Aufgabenbeschreibung}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.1}Visual Studio 2008 \& 2010}{6}
+\contentsline {subsection}{\numberline {3.2.1}Microsoft Visual Studio}{6}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.2.2}OpenCV}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.3}GUI: Web-Lokal-Steuerung}{6}
+\contentsline {subsection}{\numberline {3.2.3}GUI: Web-Lokal-Steuerung}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.4}XML-Analysierung}{6}
+\contentsline {subsection}{\numberline {3.2.4}XML-Analysierung}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.5}Fuzzy Search}{6}
+\contentsline {subsection}{\numberline {3.2.5}Fuzzy Search}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.6}Rest-Service}{6}
+\contentsline {subsection}{\numberline {3.2.6}Rest-Service}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.7}Auto-Cut}{6}
+\contentsline {subsection}{\numberline {3.2.7}Auto-Cut}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.8}HSV Farbraume}{6}
+\contentsline {subsection}{\numberline {3.2.8}HSV-Farbraume}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.9}Segmentierung}{6}
+\contentsline {subsection}{\numberline {3.2.9}Segmentierung}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.10}SVM-Klassifikator}{6}
+\contentsline {subsection}{\numberline {3.2.10}SVM-Klassifikator}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.11}Automatischer Objekterkennung}{6}
+\contentsline {subsection}{\numberline {3.2.11}Automatischer Objekterkennung}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.12}Json}{6}
+\contentsline {subsection}{\numberline {3.2.12}Json}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Zusammenfassung}{7}
+\contentsline {chapter}{\numberline {4}Zusammenfassung}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Erfahrungsgewinnen}{7}
+\contentsline {section}{\numberline {4.1}Erfahrungsgewinnen}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Auswirkungen auf die eigene Berufsvorstellung}{7}
+\contentsline {section}{\numberline {4.2}Auswirkungen auf die eigene Berufsvorstellung}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Bewertung der eigenen Leistungen}{7}
+\contentsline {section}{\numberline {4.3}Bewertung der eigenen Leistungen}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}R\IeC {\"u}ckmeldung des Arbeitgebers}{7}
+\contentsline {section}{\numberline {4.4}R\IeC {\"u}ckmeldung des Arbeitgebers}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.5}Zusammenfassung der T\IeC {\"a}tigkeit}{7}
+\contentsline {section}{\numberline {4.5}Zusammenfassung der T\IeC {\"a}tigkeit}{14}
