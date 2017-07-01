@@ -2,52 +2,50 @@
 \defcounter {refsection}{0}\relax 
 \select@language {ngerman}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {1}Einleitung}{3}
+\contentsline {chapter}{\numberline {1}Einleitung}{3}{chapter.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {2}Rahmenbedingungen}{4}
+\contentsline {chapter}{\numberline {2}Rahmenbedingungen}{4}{chapter.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.1}Art,Inhalt und Umfang dem Thema}{4}
+\contentsline {section}{\numberline {2.1}Art,Inhalt und Umfang dem Thema}{4}{section.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}Vorstellung des Projekt: StanDAP-Herb}{5}
+\contentsline {section}{\numberline {2.2}Vorstellung des Projekt: StanDAP-Herb}{5}{section.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Aufgaben der T\IeC {\"a}tigkeit}{6}
+\contentsline {chapter}{\numberline {3}Aufgaben der T\IeC {\"a}tigkeit}{6}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Aufgabenzuteilung}{6}
+\contentsline {section}{\numberline {3.1}Aufgabenzuteilung}{6}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Aufgabenbeschreibung}{6}
+\contentsline {section}{\numberline {3.2}Aufgabenbeschreibung}{6}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.1}Microsoft Visual Studio}{6}
+\contentsline {subsection}{\numberline {3.2.1}Microsoft Visual Studio}{6}{subsection.3.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.2}OpenCV}{6}
+\contentsline {subsection}{\numberline {3.2.2}OpenCV}{6}{subsection.3.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.3}GUI: Web-Lokal-Steuerung}{7}
+\contentsline {subsection}{\numberline {3.2.3}GUI: Web-Lokal-Steuerung}{6}{subsection.3.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.4}XML-Analysierung}{7}
+\contentsline {subsection}{\numberline {3.2.4}Fuzzy Search}{7}{subsection.3.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.5}Fuzzy Search}{7}
+\contentsline {subsection}{\numberline {3.2.5}Rest Server}{8}{subsection.3.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.6}Rest-Service}{7}
+\contentsline {subsection}{\numberline {3.2.6}Auto-Cut}{10}{subsection.3.2.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.7}Auto-Cut}{7}
+\contentsline {subsection}{\numberline {3.2.7}HSV-Farbraume}{11}{subsection.3.2.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.8}HSV-Farbraume}{8}
+\contentsline {subsection}{\numberline {3.2.8}Segmentierung}{12}{subsection.3.2.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.9}Segmentierung}{9}
+\contentsline {subsection}{\numberline {3.2.9}SVM-Klassifikator}{13}{subsection.3.2.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.10}SVM-Klassifikator}{10}
+\contentsline {subsection}{\numberline {3.2.10}Automatischer Objekterkennung}{15}{subsection.3.2.10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.11}Automatischer Objekterkennung}{12}
+\contentsline {subsection}{\numberline {3.2.11}Json}{16}{subsection.3.2.11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.12}Json}{13}
+\contentsline {chapter}{\numberline {4}Zusammenfassung}{17}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Zusammenfassung}{14}
+\contentsline {section}{\numberline {4.1}Erfahrungsgewinnen}{17}{section.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Erfahrungsgewinnen}{14}
+\contentsline {section}{\numberline {4.2}Auswirkungen auf die eigene Berufsvorstellung}{17}{section.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Auswirkungen auf die eigene Berufsvorstellung}{14}
+\contentsline {section}{\numberline {4.3}Bewertung der eigenen Leistungen}{18}{section.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Bewertung der eigenen Leistungen}{14}
+\contentsline {section}{\numberline {4.4}R\IeC {\"u}ckmeldung des Arbeitgebers}{18}{section.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}R\IeC {\"u}ckmeldung des Arbeitgebers}{14}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.5}Zusammenfassung der T\IeC {\"a}tigkeit}{14}
+\contentsline {section}{\numberline {4.5}Zusammenfassung der T\IeC {\"a}tigkeit}{19}{section.4.5}

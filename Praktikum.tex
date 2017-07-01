@@ -16,6 +16,7 @@
 \usepackage{graphicx}
 \usepackage[style=numeric-comp,backend=biber]{biblatex}
 \usepackage{csquotes}
+\usepackage{hyperref}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \addbibresource{MyBib.bib}
 
@@ -95,13 +96,55 @@ Visual Studio ist eine für verschiedene Hochsprachen integrierte Entwicklungsum
 \subsection{OpenCV}
 OpenCV (Open Source Computer Vision Library) ist eine freie Programmbibliothek, sie ist mit verschiedene Algorithmen für die Bildverarbeitung und Maschinelles Sehen zur Akademik und Kommerz unter eine BSD-Lizenz. Sie hat C++, C, Python und Java Oberflächen und unterstützt Windows, Linux, Mac OS, Android und IOS. Wir anwenden die Version 1.1, 2.1 und 2.4.10 für unsere Tätigkeiten.
 \subsection{GUI: Web-Lokal-Steuerung}
-
-
-\subsection{XML-Analysierung}
+Erste Schritte zu diesem Projekt, eine GUI Oberfläche-PLIES (Abbildung 3.1) in C\# wird entwickelt. \\ 
+\begin{figure}[htbp] 
+	\centering
+	\includegraphics[width=0.7\textwidth]{GUI.png}
+	\caption{GUI-Oberfläche}
+	\label{fig:Bild 2}
+\end{figure}\\
+Mit Hilfe dieser Oberfläche können die Bild und von OCR-OmniPage Software extrahierter TXT/XML Datei automatisch von OCR-Server hochgeladen werden.
+und XML Parsing, Fuzzy Search und mit Rest Service verbunden sein. Damit können die Metainformationen mit Regex(regulärer Ausdruck, englisch regular expression),das ist in der theoretischen Informatik eine Zeichenkette, die der Beschreibung von Mengen von Zeichenketten mit Hilfe bestimmter syntaktischer Regeln dient, wegen ihren Einträge oder Abkürzungen weiter bearbeitet werden,dadurch können der fehlerbehaftet OCR-Server sich ausgleichen. 
+Bevor der Verwendung von Regex muss die extrahierte XML Datei aufgrund ihre hohe Sicherheit und Standardisierung vergleichen zur TXT Datei zuerst analysiert werden, sogenannt XML Parsing. 
 
 \subsection{Fuzzy Search}
+In der Computer Wissenschaft gibt es eine Suche Methode, nennt man unscharf Suche bzw. Fuzzy-Suche, ist eine Technik von Suchen eine bestimmte Zeichenkette in einer längeren Zeichenkette oder einem Text. Es geht sich um Matching Algorithmen, ein bekanntes Algorithmus zur Berechnung ist die sogenannt Levenshtein-Distanz, die auch in der Oberfläche PLIES verwendet werden.  
+Durch die Fuzzy-Suche können die von Regex bearbeitete Metainformationen  automatisch die entsprechende richtige Information von außen verbunden Server genau gefunden und weiter mit diese Oberfläche als XML Datei gespeichert werden. Beispielsweise Server: GeoNames geographical database (\href{http://geonames.org/}{http://geonames.org/}), JRZ fuzzy gazetteer (\href{http://dma.jrc.it/services/fuzzyg}{http://dma.jrc.it/services/fuzzyg}), Sammlernamen (\href{http://kiki.huh.harvard.edu/databases/botanist\_index.html}{http://kiki.huh.harvard.edu/databases/botanist\_index.html}).
 
-\subsection{Rest-Service}
+\subsection{Rest Server}
+Representational State Transfer web Service, abgekürzt Rest oder ReST, ist eine Möglichkeit der Interoperabilität zwischen Computersystemen im Internet. Das Ziel ist, einen Architekturstil zu schaffen, der die Anforderungen des modernen Web besser darstellt.
+Um die Teilen von diesem Projekt schnell und nahtlos zu kommunizieren und konfigurieren, bei uns viele Rest Server gebaut werden. z.B. Land-Suche Dienst Server, Tamplate Matching Dienst Server, Furzzy Search Dienst Server usw..
+es gibt zwei neuen Endpoints im StanDAP-Herb Server, hier ist Paar Beispiel dafür, Server : \href{http://hsh.iosb.fraunhfer.de/}{http://hsh.iosb.fraunhfer.de/}
+\begin{itemize}
+ \item POST /api/herbariums/country/txt
+ \item POST /api/herbariums/country/xml
+\end{itemize}
+Suchen nach Länder mit der hochgeladenen XML/TXT Datei. Damit der Dienst den Inhalt der XML-Datei richtig interpretieren kann, kann es notwendig sein, die Codierung anzugeben. Zum Beispiel mit "text / xml; charset = utf-16" in Inhaltstyp.Standardmäßig werden die Ergebnisse in XML zurückgegeben. Setzen Sie auf "application / json", um die Ergebnisse im JSON-Format zu erhalten.
+\begin{itemize}
+\item POST /api/herbariums/images/typus?ID={imageId}\&Type={type}\\
+\begin{figure}[htbp] 
+	\centering
+	\includegraphics[width=0.5\textwidth]{RestServe1.jpg}
+	\caption{RestServe-Post: Suchen nach Typus im Bild. Rückkehr Token für späteren Download der Ergebnisse.}
+	\label{fig:Bild 3}
+\end{figure}
+\item GET /api/herbariums/images/typus/matches/files?ID={imageId}\&Type={type}\&Token={token}\\
+\begin{figure}[htbp] 
+	\centering
+	\includegraphics[width=0.6\textwidth]{Server2.jpg}
+	\caption{RestServe-Get :
+	Holen Sie sich die Ergebnisse der Typus-Extraktion. Needs token zur Verfügung gestellt von vorherigen Post Anfrage..}
+	\label{fig:Bild 4}
+\end{figure}
+\item Result \\
+\begin{figure}[htbp] 
+	\centering
+	\includegraphics[width=0.5\textwidth]{Server3.jpg}
+	\caption{RestServe-Result: Zeigen das Resultat von Dienst Server}
+	\label{fig:Bild 5}
+\end{figure}
+\end{itemize}
+Im Hintergrund läuft das entwickelte DLL. Die DLLs kann sehr nützlich sein, um die Entwicklung von anderen Diensten zu unterstützen.
 
 \subsection{Auto-Cut}
 Es gibt viele Objekte auf eine Herb-beleg, z.B. Barcode, Stampe, Typus…, die wir erkennen sollen. Eine Seite kann das ganze Bild in Server (OCR) laufen, um Informationen zu extrahieren, andere Seite, es ist auch wichtig, die einzeln Objekt in Server behandeln, damit kann die Anerkennungsquote zu erhöhen. Deswegen brauchen wir riesige Menge Ausschneiden von den Objekten.
@@ -123,13 +166,21 @@ Speichern sollen wir auch berücksichtigen, um die Objekte später direkt zum An
 Der Tabelle zeigt genau bei welchem Objekt sollen wir welche Tastatur drucken, um das Objekt richtig zu speichern.
 
 \subsection{HSV-Farbraume}
-Der HSV-Farbraum ist ein Farbraum etlicher Farbmodelle, bei denen man kann die Farbe mit Hilfe des Farbwerts (englisch hue), der Farbsättigung (saturation) und des Hellwerts (oder der Dunkelstufe) (value) definieren(Abbildung 3.3) \cite{7}. Mit diese Objekte von Typus habe ich diese Farbraum Modell wegen ihrer speziellen Farbe, normalerweise sind die immer rot, angewendet. 
+Der HSV-Farbraum ist ein Farbraum etlicher Farbmodelle, bei denen man kann die Farbe mit Hilfe des Farbwerts (englisch hue), der Farbsättigung (saturation) und des Hellwerts (oder der Dunkelstufe) (value) definieren(Abbildung 3.3) \cite{7}. \\ 
 \begin{figure}[htbp] 
 	\centering
-	\includegraphics[width=0.5\textwidth]{HSV_cone.png}
+	\includegraphics[width=0.3\textwidth]{HSV_cone.png}
 	\caption{HSV-Farbraum als Kegel}
 	\label{fig:Bild 3}
+\end{figure}\\
+Mit diese Objekte von Typus habe ich diese Farbraum Modell wegen ihrer speziellen Farbe, normalerweise sind die immer rot(Abbildung 3.4), angewendet. Damit nur die Farbekanal von Rot ausgefiltert werden.\\
+\begin{figure}[htbp] 
+	\centering
+	\includegraphics[width=0.4\textwidth]{test.jpg}
+	\caption{Beispiel von Typus}
+	\label{fig:Bild 4}
 \end{figure}
+
 
 \subsection{Segmentierung}
 Ermittlung von Rechtangle ist der Prozess, ein Bild in multiple Segmentation zu trennen. Dieser Prozess dient dafür, Analysierung von Bild und Extraktion von Merkmal zu vereinfachen.\cite{5} 
@@ -140,7 +191,7 @@ Nach Sobel Filter bieten wir eine Threshold Funktion, um das Bild zum Binary zu 
 	\centering
 	\includegraphics[width=0.5\textwidth]{SVMPre.png}
 	\caption{Verschneiende Bilder zu vergleichen}
-	\label{fig:Bild 4}
+	\label{fig:Bild 5}
 \end{figure}\\
 Links Bild mit Dimension 41x30 ist für Stampe besser, aber recht Bild ist mit Dimension 80x45 ist für Mus.Bot.Berol besser. Man kann nicht nur mit einer bestimmten Dimension alles gewonnen.
 Konturen sollen dann mit dem resultierenden Bild gefunden werden. Damit erhalten wir aber viele Müll, deswegen sollen wir die Segmentation überprüfen. Mit definiertem Seitenverhältnis, In unsere Situation ist es 3.8 mit 40\% Fehlertoleranz, können wir Stampe, Barcode, Mus.Bot.Berol alle ausfinden. Die Richtung der Segmentation ist auch berüchtigt, d.h. die in beide Richtungen liegende Segmentation können herausgefunden werden.
@@ -156,7 +207,7 @@ In unsere Programm verwenden wir SVMs nur zur Klassifizierung, die darstellte Ab
 	\centering
 	\includegraphics[width=0.5\textwidth]{SVM.png}
 	\caption{SVM Programm : Dieses ganze Prozesses beziehen sich auf das Programm sind Sobel Filter, Threshold Operation, Morphologic Operation, Find Contours, SVM Klassifikation, SVM Training.}
-	\label{fig:Bild 5}
+	\label{fig:Bild 6}
 \end{figure}\\
 Die alle gespeicherten Objektregionen, sollen wir entscheiden, dass ob die gefundene Objektregion eine Stampe oder ein Barcode ist. Um dies zu erledigen, brauchen wir jetzt SVM Algorithmus. 
 Bevor der Klassifikation muss der Klassifikator mit Label trainiert werden, sog. Offline Training. In unsere Situation, wegen der vielen varianten Bilder brauchen wir eine ausreichende Menge Daten zu trainieren. D.h. je größer unsere Datenbank ist, umso kriegen wir besser Ergebnis. Deswegen brauchen wir zu mindesten ein paar tausend Herb-Beleg für Preprozessor und Segmentierung.
@@ -165,7 +216,7 @@ SVM ist inhärent ein binärer Klassifikator, in unsere Situation, für Stampe, 
 	\centering
 	\includegraphics[width=0.7\textwidth]{Positivnegativ.png}
 	\caption{Positive Bilder und negative Bilder}
-	\label{fig:Bild 6}
+	\label{fig:Bild 7}
 \end{figure}\\
 Klasse Stampen gegen die andere, Stampe werden mit positivem Label identifiziert, die andere wird mit negativem Label identifiziert. Barcode, Mus.Bot.Berol werden auch so trainiert. Dann die ganzen trainierten Daten  werden in eine XML Datei gespeichert.
 
@@ -176,7 +227,7 @@ Mit eingegebenen Parameters kann die Klassifikator trainieret werden. Danach ist
 	\includegraphics[width=0.5\textwidth]{Svmresult.png}
 	\caption{Resultat von SVM Programm: Die Abbildung zeigt, wie das Resultat von SVM Programm im originalen Bild aussieht, die mit grünen Rechtangle eingehüllten Objekte sind die gefundenen Objekteregionen. Links ist für Typus, rechts ist für Stampe, Barcode, Mus.Bot.Berol.. Die gespeicherten Koordinaten werden weiter in andere Programm geliefert.
 	}
-	\label{fig:Bild 4}
+	\label{fig:Bild 8}
 \end{figure}
 
 \subsection{Automatischer Objekterkennung}
@@ -186,16 +237,25 @@ Um die Koordinaten auf Herb-Beleg zu erhalten, automatische Erkennung von den Ob
 \chapter{Zusammenfassung}
 
 \section{Erfahrungsgewinnen}
+Meine Erwartung an das Praktikum war vornehmlich, einen professionellen Akteur der Automobilelektronik im Bereich Erprobung Gesamtfahrzeug in seinen Arbeitsabläufen, Inhalten und Zielen kennenzulernen. Dies wurde durch den Geschäftsbereich Validation der E/E Komponente und Funktionentest des BMWs voll erfüllt.
+Aufgrund meiner anfänglich fehlenden Erfahrungen in diesem Arbeitsbereich waren die sechs Monate des Praktikums insgesamt ein enormer Erfahrungsgewinn. Dies bezieht sich vor allem auf die inhaltliche Auseinandersetzung mit den Themen Validation der E/E Komponente und Funktionentests. Die Bearbeitung einer Validation der E/E Komponente und die Funktionentests erweiterten mein Wissen, wie die E/E Komponente validiert werden kann und welche Inhalte und Ziele mit diesem Prozess verbunden sind. Bei den Besprechungen mit Fachkräften und Kollegen, die zur aktuellen und geplanten I-Stufe und bei Veranstaltungen stattfanden, wurde für mich insbesondere deutlich, wie die Prozesse nicht nur in unserem Team sondern auch in allen verbundenen Abteilungen bei der Firma BMW laufen. Außerdem lernte ich, wie wichtig das Verhandeln trotz verschiedener Kompetenzbereiche zwischen den Teams mit unterschiedlichen Standpunkten ist. Es werden immer wieder gemeinsame Projekte bearbeitet oder inhaltliche Überschneidungen beeinflussen die Arbeit des Teams. Dabei war das Protokollieren ein wesentlicher Bestandteil der Koordination, da hier die wichtigsten Terme, Ergebnisse und Aufgaben festgehalten wurden. Dadurch sollte eine optimale Arbeitsteilung ohne doppelten Arbeitsaufwand zwischen den Teams erzielt werden.
+
 
 \section{Auswirkungen auf die eigene Berufsvorstellung}
+Das Praktikum in einer Automobilelektronikeinrichtung war auch mit dem Ziel verbunden, für meine zukünftige Berufsvorstellung Erfahrungen zu sammeln. Durch mein absolviertes Praktikum von Oktober 2016 bis April 2017 in der BMW konnte ich erste Eindrücke vom Berufsfeld Erprobung Gesamtfahrzeug gewinnen. Dies motivierte mich so sehr, dass ich ein Praktikum in der Autoindustrie machen wollte. Dadurch sollte sich das Interesse für meinen späteren Berufswunsch konkretisieren lassen. Dies ist insbesondere für einen Studenten der Elektrotechnik wichtig, weil die Themenbereiche und Arbeitsplatzmöglichkeiten weit gefächert sind. Deswegen erscheint es mir wichtig zu wissen, in welchem Bereich der Erprobung Gesamtfahrzeug und mit welchen Inhalten ich in meinem Berufsleben arbeiten möchte.
+Das Praktikum beim EG-CN-62 im Bereich Validation der E/E Komponente und Funktionentest hat dabei meine Erwartungen erfüllt und mich in meiner Berufsvorstellung bestätigt. Dies erscheint mir als reizvoll und sinnvoll. Die praktischere Erfahrung in diesem Bereich macht mich nicht nur im Bereich der Erprobung Gesamtfahrzeug sondern auch in fast allen Bereichen über E/E System für mein Berufsleben konkurrenzfähig, da ich mich auch mit anderen Abteilungen beschäftigt habe, die nur spezielle E/E Komponenten bearbeiten.
+
 
 \section{Bewertung der eigenen Leistungen}
+Mein Fleiß und meine Arbeitsmoral waren während des gesamten Praktikums sehr gut und hoch. Die Akzeptanz meiner Persönlichkeit und meine berufliche Fähigkeit wurden von allen Kollegen, die in meinem Team und in anderen Abteilungen arbeiten, gefördert. Ich fühlte mich stets gefordert und habe deswegen auch meine Motivation bis zum Ende halten können. Bei der Durchführung des Upgrades der Software und Austausches der Hardware habe ich mich am Anfang des Praktikums manchmal unsicher gefühlt, weil die Schritte dafür sich teilweise als schwierig und eigenartig gestaltet haben. Dies konnte ich aber im Laufe meines Praktikums entschärfen, indem ich über die Schritte und Methode nochmals mit meinem Team diskutiert habe und um Rat gefragt habe. Dadurch konnten weitere Schritte geklärt werden. Bei der Lösung dieses Problems möchte ich allen Kollegen danken, da sie ihre Erfahrungen mit mir ausgetauscht haben. Das erlaubte mir, ein Problem mit unterschiedlichen Lösungen zu behandeln. Trotz dieser kleineren Schwierigkeiten habe ich mich bei der Erfüllung meiner Aufgaben wohl gefühlt und mich von meiner Seite gut in das Team integriert. Mein Team erlaubte mir, für ein Fahrzeug, Mini Cooper Clubman (Siehe Abb. 17) vollständig die Verantwortung zu übernehmen. Jedes Mal, wenn ich auf ein Problem traf, boten Sie mir ausgezeichnete Lösungen an. Danke für das Vertrauen und großzügige Unterstützung von meinem Team. 
 
 \section{Rückmeldung des Arbeitgebers}
+Zum Ende meines Praktikums hat ein Abschlussgespräch mit meinem Betreuer und dem Team stattgefunden, in dem ich meine Erfahrungen reflektieren sollte und eine Bewertung meiner Arbeitsleistung erhalten habe. Hierbei ging es vordergründig um die Aufgabe der Validation der E/E Komponente laut der I-Stufe und die Funktionentests laut EHB. Dabei wurde besonders hervorgehoben, dass meine Arbeitsleistung im FIT Team sehr gut war. Von meinem Betreuer wurde des Weiteren geschätzt, dass ich eigene Ideen und Vorstellungen in meine Arbeit eingebracht habe und die mir gestellten Aufgaben eigenständig ausgeführt habe.
 
 \section{Zusammenfassung der Tätigkeit}
+Das Praktikum war auf der inhaltlichen Ebene für mich ein interessanter Bereich, da während meines Elektrotechnikstudiums eine sehr enge Auseinandersetzung mit den Themen Validation der E/E Komponente und Funktionentests stattgefunden hat.
+Bei der Bearbeitung der Validation der E/E Komponente und den Funktionentests konnte ich an meine Erfahrungen aus dem Studium anknüpfen. Die Kenntnisse über Automobilelektronik habe ich nutzen können um meine Arbeitsaufgabe strukturiert und kompetent gestalten zu können. Die Theorie, die ich aus Fachliteratur und Vorlesungen gelernt habe, ist abstrakt und nicht einfach zu verstehen. Das Praktikum erlaubte mir, die E/E Komponenten in der Realität kennenzulernen. Nun kann ich die Theorie besser verstehen und die vorherigen Missverständnisse vermeiden. Die Fachliteratur lässt mich auf der theoretischen Ebene verstehen, wie die E/E Komponente funktioniert und mit welchen mechatronischen Elementen sie verbunden werden muss, um die Funktionen des Fahrzeugs zu realisieren. Nachdem die Fachkraft in meinen Team den Grundsatz der Automobilelektronik ausführlich erläutert hat, muss ich einmal reflektieren, welche Unterschiede zwischen der Theorie in der Literatur und dem aktuellen Wissensstand bestehen, denn die Lehrmeinungen der Literatur sind teilweise überholt.
 
-%\chapter{Referenz}
 \printbibliography
 	                      	
 \end{document}   
