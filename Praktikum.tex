@@ -17,6 +17,9 @@
 \usepackage[style=numeric-comp,backend=biber]{biblatex}
 \usepackage{csquotes}
 \usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{subcaption}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \addbibresource{MyBib.bib}
 
@@ -25,6 +28,7 @@
 \parskip 1.5ex                       % Absatzabstand
 \raggedbottom                        
 \renewcommand{\baselinestretch}{1.3} % Zeilenabstand
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 \titleformat{\chapter}
@@ -80,7 +84,7 @@ Das Projekt gehört zu Forschungsprojekt, die Grund, warum es gemacht wird, laut
 
 \section{Vorstellung des Projekt: StanDAP-Herb}
 
-Das Projekt, Standard Daten Akquisitionsprozess - Ein standardisierter und optimierter Prozess zur Erschließung von digitalen Herbarbelegen, ist durch DFG Deutsche Forschungsgemeinschaft, Literaturversorgung und Information / Erschließung und Digitalisierung gefördert, dauert insgesamt 3 Jahre lang, ab Juli 2014 bis Juni 2017. Das Ziel von diesem Projekt ist, einen softwarebasierten Standardprozess für die Extraktion von Metadaten von digitalen Herbarbelegen zu entwickeln und dokumentieren. Die Partnern von diesem Projekt sind \textit{Botanic Garden and Botanical Museum Berlin}, \textit{Fraunhofer IOSB - Karlsruhe} uns \textit{Hochschule Hannover}.
+Das Projekt, Standard Daten Akquisitionsprozess - Ein standardisierter und optimierter Prozess zur Erschließung von digitalen Herbarbelegen, ist durch DFG Deutsche Forschungsgemeinschaft, Literaturversorgung und Information / Erschließung und Digitalisierung gefördert, dauert insgesamt 3 Jahre lang, ab Juli 2014 bis Juni 2017. Das Ziel von diesem Projekt ist, einen softwarebasierten Standardprozess für die Extraktion von Metadaten von digitalen Herbarbelegen zu entwickeln und dokumentieren. Die Partnern von diesem Projekt sind \textit{Botanic Garden and Botanical Museum Berlin}, \textit{Fraunhofer IOSB - Karlsruhe} und \textit{Hochschule Hannover}.
 
 \chapter{Aufgaben der Tätigkeit}
 \section{Aufgabenzuteilung}
@@ -99,12 +103,18 @@ OpenCV (Open Source Computer Vision Library) ist eine freie Programmbibliothek, 
 Erste Schritte zu diesem Projekt, eine GUI Oberfläche-PLIES (Abbildung 3.1) in C\# wird entwickelt. \\ 
 \begin{figure}[htbp] 
 	\centering
-	\includegraphics[width=0.7\textwidth]{GUI.png}
+	\includegraphics[width=0.6\textwidth]{GUI.png}
 	\caption{GUI-Oberfläche}
-	\label{fig:Bild 2}
+	\label{fig:Bild 3.1}
 \end{figure}\\
 Mit Hilfe dieser Oberfläche können die Bild und von OCR-OmniPage Software extrahierter TXT/XML Datei automatisch von OCR-Server hochgeladen werden.
-und XML Parsing, Fuzzy Search und mit Rest Service verbunden sein. Damit können die Metainformationen mit Regex(regulärer Ausdruck, englisch regular expression),das ist in der theoretischen Informatik eine Zeichenkette, die der Beschreibung von Mengen von Zeichenketten mit Hilfe bestimmter syntaktischer Regeln dient, wegen ihren Einträge oder Abkürzungen weiter bearbeitet werden,dadurch können der fehlerbehaftet OCR-Server sich ausgleichen. 
+und XML Parsing, Fuzzy Search und mit Rest Service verbunden sein. Mit eine Funktion \glqq Log in\grqq kann auch mit dem Server von \textit{Fraunhofer IOSB - Karlsruhe} \href{https://standap-herb.server.de/servlet/is/11/}{https://standap-herb.server.de/servlet/is/11/} verbunden sein, um die Bilder von \textit{Botanic Garden and Botanical Museum Berlin} automatisch herunterladen und das Ergebnis von \textit{Hochschule Hannover} hochladen. Damit können auch z.B. die Metainformationen mit Regex(regulärer Ausdruck, englisch regular expression),das ist in der theoretischen Informatik eine Zeichenkette, die der Beschreibung von Mengen von Zeichenketten mit Hilfe bestimmter syntaktischer Regeln dient, wegen ihren Einträge oder Abkürzungen weiter bearbeitet werden,Abbildung 3.2,dadurch können der fehlerbehaftet OCR-Server sich ausgleichen.\\
+ \begin{figure}[htbp] 
+ 	\centering
+ 	\includegraphics[width=0.7\textwidth]{Regex.png}
+ 	\caption{Einträge oder Abkürzungen}
+ 	\label{fig:Bild 3.2}
+ \end{figure}\\
 Bevor der Verwendung von Regex muss die extrahierte XML Datei aufgrund ihre hohe Sicherheit und Standardisierung vergleichen zur TXT Datei zuerst analysiert werden, sogenannt XML Parsing. 
 
 \subsection{Fuzzy Search}
@@ -125,23 +135,23 @@ Suchen nach Länder mit der hochgeladenen XML/TXT Datei. Damit der Dienst den In
 \begin{figure}[htbp] 
 	\centering
 	\includegraphics[width=0.5\textwidth]{RestServe1.jpg}
-	\caption{RestServe-Post: Suchen nach Typus im Bild. Rückkehr Token für späteren Download der Ergebnisse.}
-	\label{fig:Bild 3}
+	\caption{RestServe-Post: Suchen nach Typus im Bild. Rückkehr Token für späteren Download der Ergebnisse}
+	\label{fig:Bild 3.3}
 \end{figure}
-\item GET /api/herbariums/images/typus/matches/files?ID={imageId}\&Type={type}\&Token={token}\\
+\item GET /api/herbariums/images/typus/matches/files?ID={imageId}\&Type={type}\&Token={token}
 \begin{figure}[htbp] 
 	\centering
-	\includegraphics[width=0.6\textwidth]{Server2.jpg}
+	\includegraphics[width=0.5\textwidth]{Server2.jpg}
 	\caption{RestServe-Get :
 	Holen Sie sich die Ergebnisse der Typus-Extraktion. Needs token zur Verfügung gestellt von vorherigen Post Anfrage..}
-	\label{fig:Bild 4}
+	\label{fig:Bild 3.4}
 \end{figure}
 \item Result \\
 \begin{figure}[htbp] 
 	\centering
-	\includegraphics[width=0.5\textwidth]{Server3.jpg}
+	\includegraphics[width=0.4\textwidth]{Server3.jpg}
 	\caption{RestServe-Result: Zeigen das Resultat von Dienst Server}
-	\label{fig:Bild 5}
+	\label{fig:Bild 3.5}
 \end{figure}
 \end{itemize}
 Im Hintergrund läuft das entwickelte DLL. Die DLLs kann sehr nützlich sein, um die Entwicklung von anderen Diensten zu unterstützen.
@@ -152,33 +162,33 @@ Um das Aus schneiden durchzuführen, müssen wir überlegen, wie es machen kann.
 Bild ist durch das Programm hochgeladen worden, und durch Maus das Objekt abzugrenzen, z.B. bei einem Barcode klicken wir mit der linken Maustaste auf den oben links Punkt und ziehen wir bei gedrückter Maustaste bis zum unten rechts Punkt, danach lassen wir die Maustaste los. Damit bekommen wir die Koordinaten von den beiden Punkten, schneiden die Rechtangle, die die Punkte bezüglich ist, aus.\\
 \begin{figure}[htbp] 
 	\centering
-	\includegraphics[width=0.5\textwidth]{Cutobjekte.png}
+	\includegraphics[width=0.4\textwidth]{Cutobjekte.png}
 	\caption{Objekte Belege}
-	\label{fig:Bild 2}
+	\label{fig:Bild 3.6}
 \end{figure}\\
-Speichern sollen wir auch berücksichtigen, um die Objekte später direkt zum Anlernen genutzt zu werden. Brauchen wir Sortierung während Speichern, z.B. bei dem Objekt Barcode, drucken wir die Tastatur „3“, damit das Barcode würde automatisch im dritten Datei gespeichert werden. Die ausführlichen Informationen von „Objekt-Tastatur-Speicherdatei“  sind in folgende Tabelle gegeben, sehen Sie Abbildung 3.2.\\
+Speichern sollen wir auch berücksichtigen, um die Objekte später direkt zum Anlernen genutzt zu werden. Brauchen wir Sortierung während Speichern, z.B. bei dem Objekt Barcode, drucken wir die Tastatur „3“, damit das Barcode würde automatisch im dritten Datei gespeichert werden. Die ausführlichen Informationen von „Objekt-Tastatur-Speicherdatei“  sind in folgende Tabelle gegeben, sehen Sie Abbildung 3.7.\\
 \begin{figure}[htbp] 
 	\centering
-	\includegraphics[width=0.7\textwidth]{Tabelle.png}
+	\includegraphics[width=0.5\textwidth]{Tabelle.png}
 	\caption{Objekt-Tastatur-Speicherdatei}
-	\label{fig:Tabelle 1}
+	\label{fig:Bild 3.7}
 \end{figure}\\
 Der Tabelle zeigt genau bei welchem Objekt sollen wir welche Tastatur drucken, um das Objekt richtig zu speichern.
 
 \subsection{HSV-Farbraume}
-Der HSV-Farbraum ist ein Farbraum etlicher Farbmodelle, bei denen man kann die Farbe mit Hilfe des Farbwerts (englisch hue), der Farbsättigung (saturation) und des Hellwerts (oder der Dunkelstufe) (value) definieren(Abbildung 3.3) \cite{7}. \\ 
+Der HSV-Farbraum ist ein Farbraum etlicher Farbmodelle, bei denen man kann die Farbe mit Hilfe des Farbwerts (englisch hue), der Farbsättigung (saturation) und des Hellwerts (oder der Dunkelstufe) (value) definieren(Abbildung 3.8) \cite{7}. \\ 
 \begin{figure}[htbp] 
 	\centering
 	\includegraphics[width=0.3\textwidth]{HSV_cone.png}
 	\caption{HSV-Farbraum als Kegel}
-	\label{fig:Bild 3}
+	\label{fig:Bild 3.8}
 \end{figure}\\
-Mit diese Objekte von Typus habe ich diese Farbraum Modell wegen ihrer speziellen Farbe, normalerweise sind die immer rot(Abbildung 3.4), angewendet. Damit nur die Farbekanal von Rot ausgefiltert werden.\\
+Mit diese Objekte von Typus habe ich diese Farbraum Modell wegen ihrer speziellen Farbe, normalerweise sind die immer rot(Abbildung 3.9), angewendet. Damit nur die Farbekanal von Rot ausgefiltert werden.\\
 \begin{figure}[htbp] 
 	\centering
 	\includegraphics[width=0.4\textwidth]{test.jpg}
 	\caption{Beispiel von Typus}
-	\label{fig:Bild 4}
+	\label{fig:Bild 3.9}
 \end{figure}
 
 
@@ -186,12 +196,12 @@ Mit diese Objekte von Typus habe ich diese Farbraum Modell wegen ihrer spezielle
 Ermittlung von Rechtangle ist der Prozess, ein Bild in multiple Segmentation zu trennen. Dieser Prozess dient dafür, Analysierung von Bild und Extraktion von Merkmal zu vereinfachen.\cite{5} 
 In unsere Situation ist das wichtige Merkmal von Segmentation vertikal Kante in dem Bild, der Merkmal kann ausgenutzt werden und die Regionen, die gar keine vertikale Kante haben, zu eliminieren. 
 Bevor Finden der vertikale Kante, sollen wir die mögliche Rausch mit Gaussian blur möglich viele entfernen. Um die vertikale Kante zu finden, haben wir uns die Sobel Filter entschieden. Weil mit diese Funktion können wir selbst Richtungsderivat definieren. 
-Nach Sobel Filter bieten wir eine Threshold Funktion, um das Bild zum Binary zu transformieren. Und danach durch Morphologische Operation können wir den Spalt zwischen Kante eliminieren und die andere nötige Kante verbinden. In unsere Situation liefert es bei der Dimension 41x30 ein gutes Ergebnis. Aber wir lassen das veränderbar, weil für uns die Bilder immer Variante ist, mit verschieden Leuchtdichte, verschiedenen Lokalisation der Objekten, manchmal sehr eng miteinander, manchmal gibt es genug Abstand zueinander, und natürlich mit verschiedenen Klarheit von den Objekten, deswegen hat die Dimension von morphologischer Operation sehr groß Beeinflusse, zu groß oder zu klein würden die Objektregionen nicht mehr finden können. Beispielweise die Abbildung 3.4).\\
+Nach Sobel Filter bieten wir eine Threshold Funktion, um das Bild zum Binary zu transformieren. Und danach durch Morphologische Operation können wir den Spalt zwischen Kante eliminieren und die andere nötige Kante verbinden. In unsere Situation liefert es bei der Dimension 41x30 ein gutes Ergebnis. Aber wir lassen das veränderbar, weil für uns die Bilder immer Variante ist, mit verschieden Leuchtdichte, verschiedenen Lokalisation der Objekten, manchmal sehr eng miteinander, manchmal gibt es genug Abstand zueinander, und natürlich mit verschiedenen Klarheit von den Objekten, deswegen hat die Dimension von morphologischer Operation sehr groß Beeinflusse, zu groß oder zu klein würden die Objektregionen nicht mehr finden können. Beispielweise die Abbildung 3.10).\\
 \begin{figure}[htbp] 
 	\centering
 	\includegraphics[width=0.5\textwidth]{SVMPre.png}
 	\caption{Verschneiende Bilder zu vergleichen}
-	\label{fig:Bild 5}
+	\label{fig:Bild 3.10}
 \end{figure}\\
 Links Bild mit Dimension 41x30 ist für Stampe besser, aber recht Bild ist mit Dimension 80x45 ist für Mus.Bot.Berol besser. Man kann nicht nur mit einer bestimmten Dimension alles gewonnen.
 Konturen sollen dann mit dem resultierenden Bild gefunden werden. Damit erhalten wir aber viele Müll, deswegen sollen wir die Segmentation überprüfen. Mit definiertem Seitenverhältnis, In unsere Situation ist es 3.8 mit 40\% Fehlertoleranz, können wir Stampe, Barcode, Mus.Bot.Berol alle ausfinden. Die Richtung der Segmentation ist auch berüchtigt, d.h. die in beide Richtungen liegende Segmentation können herausgefunden werden.
@@ -202,43 +212,53 @@ Die alle gefundenen möglichen Objektregionen würden auch sortiert, und paralle
 \subsection{SVM-Klassifikator}
 SVM ist eine Support Vector Machine, die als Klassifikator(vgl. Klassifizierung) und Regressor (vgl. Regressionsanalyse) dient. Eine SVM unterteilt eine Menge von Objekten so in Klassen, dass um die Klassengrenzen herum ein möglichst breiter Bereich frei von Objekten bleibt, sie ist ein sogenannter Large Margin Classifier (engl. „Breiter-Rand-Klassifikator“). SVMs können sowohl zur Regression als auch zur Klassifizierung verwendet werden\cite{4}.
 SVMs sind keine herkömmliche Maschinen zu verstehen. Die bestehen  nicht aus greifbaren Bauteilen, sondern handeln sie sich um ein rein mathematisches Verfahren der Mustererkennung, das in Computerprogrammen umgesetzt wird. Der Namensteil Machine weist dementsprechend das Herkunftsgebiet der Support Vector Machines, das maschinelle Lernen.
-In unsere Programm verwenden wir SVMs nur zur Klassifizierung, die darstellte Abbildung 3.5 zeigt, wie sollen wir die Objekte erkennen. In dem SVM Programm definieren wir drei wichtige Funktionsschritte, unser System zu trainieren.\\
+In unsere Programm verwenden wir SVMs nur zur Klassifizierung, die darstellte Abbildung 3.11 zeigt, wie sollen wir die Objekte erkennen. In dem SVM Programm definieren wir drei wichtige Funktionsschritte, unser System zu trainieren.\\
 \begin{figure}[htbp] 
 	\centering
 	\includegraphics[width=0.5\textwidth]{SVM.png}
 	\caption{SVM Programm : Dieses ganze Prozesses beziehen sich auf das Programm sind Sobel Filter, Threshold Operation, Morphologic Operation, Find Contours, SVM Klassifikation, SVM Training.}
-	\label{fig:Bild 6}
+	\label{fig:Bild 3.11}
 \end{figure}\\
 Die alle gespeicherten Objektregionen, sollen wir entscheiden, dass ob die gefundene Objektregion eine Stampe oder ein Barcode ist. Um dies zu erledigen, brauchen wir jetzt SVM Algorithmus. 
 Bevor der Klassifikation muss der Klassifikator mit Label trainiert werden, sog. Offline Training. In unsere Situation, wegen der vielen varianten Bilder brauchen wir eine ausreichende Menge Daten zu trainieren. D.h. je größer unsere Datenbank ist, umso kriegen wir besser Ergebnis. Deswegen brauchen wir zu mindesten ein paar tausend Herb-Beleg für Preprozessor und Segmentierung.
-SVM ist inhärent ein binärer Klassifikator, in unsere Situation, für Stampe, Barcode, Mus. Bot. Berol. bedürfen wir 4 Klasse, wir nutzten lineare Klassifikation. Es gibt viele Möglichkeiten zu trainieren, z.B. one-versus-rest(OVR SVMs), one-versus-one (OVO SVMs). Wir haben uns OVR SVMs entschieden, weil für uns ist es sehr schnell und unser System ist nicht kompliziert. Unser Prozess beruht sich auf die Bildpixels, sehen Sie in folgendem Bild(Abbildung 3.6).\\
+SVM ist inhärent ein binärer Klassifikator, in unsere Situation, für Stampe, Barcode, Mus. Bot. Berol. bedürfen wir 4 Klasse, wir nutzten lineare Klassifikation. Es gibt viele Möglichkeiten zu trainieren, z.B. one-versus-rest(OVR SVMs), one-versus-one (OVO SVMs). Wir haben uns OVR SVMs entschieden, weil für uns ist es sehr schnell und unser System ist nicht kompliziert. Unser Prozess beruht sich auf die Bildpixels, sehen Sie in folgendem Bild(Abbildung 3.12).\\
 \begin{figure}[htbp] 
 	\centering
 	\includegraphics[width=0.7\textwidth]{Positivnegativ.png}
 	\caption{Positive Bilder und negative Bilder}
-	\label{fig:Bild 7}
+	\label{fig:Bild 3.12}
 \end{figure}\\
-Klasse Stampen gegen die andere, Stampe werden mit positivem Label identifiziert, die andere wird mit negativem Label identifiziert. Barcode, Mus.Bot.Berol werden auch so trainiert. Dann die ganzen trainierten Daten  werden in eine XML Datei gespeichert.
+Klasse Stampen gegen die andere, Stampe werden als positivem Label identifiziert, die andere werden als negativem Label identifiziert. Barcode, Mus.Bot.Berol werden auch so trainiert. Dann die ganzen trainierten Daten  werden in eine XML Datei gespeichert.
 
-Nach dem Bekommen der trainierten Daten müssen wir jetzt die SVM Parametern definieren, um das SVM Algorithmus zu verwenden. In OpenCv ist es einfach, dass wir können einfach CvSVMParam direkt anrufen und die Parameter eingeben. Hier könnten wir auch die Parameter automatisch mal trainieren, um die besten Parametern zu erzielen. 
-Mit eingegebenen Parameters kann die Klassifikator trainieret werden. Danach ist es bereit zu Prognose von möglichen Objektregionen mit Predict Funktion. Falls wir positive Resultat erhalten, ist die Objektregion interessiert uns, negative Resultat, dann interessiert uns nicht. Somit können wir klassieren alle gefundenen möglichen Objektregionen mit der Rückmeldung von Prognose. Nur die mit dem positiven Prognose Objektregionen und auch deren Koordinaten werden gespeichert(Abbildung 3.6). \\
+Nach dem Bekommen der trainierten Daten müssen wir jetzt die SVM Parametern definieren, um das SVM Algorithmus zu verwenden. In OpenCv ist es einfach, dass wir können einfach CvSVMParam direkt anrufen und die Parameter eingeben. Hier könnten wir auch die Parameter automatisch mal trainieren, um die besten Parametern zu erzielen\cite{6}. 
+Mit eingegebenen Parameters kann die Klassifikator trainieret werden. Danach ist es bereit zu Prognose von möglichen Objektregionen mit Predict Funktion. Falls wir positive Resultat erhalten, ist die Objektregion interessiert uns, negative Resultat, dann interessiert uns nicht. Somit können wir klassieren alle gefundenen möglichen Objektregionen mit der Rückmeldung von Prognose. Nur die mit dem positiven Prognose Objektregionen und auch deren Koordinaten werden gespeichert(Abbildung 3.13). \\
 \begin{figure}[htbp] 
 	\centering
 	\includegraphics[width=0.5\textwidth]{Svmresult.png}
 	\caption{Resultat von SVM Programm: Die Abbildung zeigt, wie das Resultat von SVM Programm im originalen Bild aussieht, die mit grünen Rechtangle eingehüllten Objekte sind die gefundenen Objekteregionen. Links ist für Typus, rechts ist für Stampe, Barcode, Mus.Bot.Berol.. Die gespeicherten Koordinaten werden weiter in andere Programm geliefert.
 	}
-	\label{fig:Bild 8}
+	\label{fig:Bild 3.13}
 \end{figure}
 
 \subsection{Automatischer Objekterkennung}
 Um die Koordinaten auf Herb-Beleg zu erhalten, automatische Erkennung von den Objekten ist in der erste Linien.  Dieses Programm ist genau dafür gesorgt. Es beinhaltet Ermittlung von Objekt(Preprozessor), und Klassifikation von Objekte.  Das Ziel von Ermittlung dem Objekt ist es, die möglichen Objektregionen in ganzen Bildframe zu ermitteln. Falls eine Rechtangle wird ermittelt, die Rechtangle Segment wird in den zweite Schritt übertragt, mit SVM(Support Vector Machine) Algorithmus zu entscheiden, ob die Rechtangle richtig ist. Durch das Programm können die Koordinaten von Objekt automatisch geliefert werden. Die Koordinaten können später in andere Programm eingeben, um die Region automatisch zu ausschneiden. 
+
 \subsection{Json}
+Json, JavaScript Object Notation ist ein leichtes Datenaustauschformat, es ist einfach für Menschen zu lesen, schreiben, analysieren und generieren. Es basiert auf einer Teilmenge der JavaScript-Programmiersprache, Standard ECMA-262 3. Auflage - Dezember 1999\cite{8}. JSON ist ein Textformat, das vollständig sprachunabhängig ist, aber verwendet Konventionen, die den Programmierern der C-Familie von Sprachen vertraut sind, einschließlich C , C ++, C\#, Java, JavaScript, Perl, Python und viele andere. Diese Eigenschaften machen JSON zu einer idealen Datenaustauschsprache.\\
+Nach Automatischer Objekterkennung sollen die Koordinaten von erkannten Objekte gespeichert werden(Abbildung 3.14), um diese entsprechende Objekte in andere Dienst Server automatischer auszuschneiden. \\
+\begin{figure}[htbp] 
+	\centering
+	\includegraphics[width=0.5\textwidth]{Json.png}
+	\caption{Beispiel für Json String}
+	\label{fig:Bild 3.14}
+\end{figure}
+Danach werden alle ausgeschnitten Objekte wieder in OCR Server eingeworfen, noch mal feine text Mining zu schaffen, um das Ergebnis zu verbessern.
 
 \chapter{Zusammenfassung}
 
 \section{Erfahrungsgewinnen}
-Meine Erwartung an das Praktikum war vornehmlich, einen professionellen Akteur der Automobilelektronik im Bereich Erprobung Gesamtfahrzeug in seinen Arbeitsabläufen, Inhalten und Zielen kennenzulernen. Dies wurde durch den Geschäftsbereich Validation der E/E Komponente und Funktionentest des BMWs voll erfüllt.
-Aufgrund meiner anfänglich fehlenden Erfahrungen in diesem Arbeitsbereich waren die sechs Monate des Praktikums insgesamt ein enormer Erfahrungsgewinn. Dies bezieht sich vor allem auf die inhaltliche Auseinandersetzung mit den Themen Validation der E/E Komponente und Funktionentests. Die Bearbeitung einer Validation der E/E Komponente und die Funktionentests erweiterten mein Wissen, wie die E/E Komponente validiert werden kann und welche Inhalte und Ziele mit diesem Prozess verbunden sind. Bei den Besprechungen mit Fachkräften und Kollegen, die zur aktuellen und geplanten I-Stufe und bei Veranstaltungen stattfanden, wurde für mich insbesondere deutlich, wie die Prozesse nicht nur in unserem Team sondern auch in allen verbundenen Abteilungen bei der Firma BMW laufen. Außerdem lernte ich, wie wichtig das Verhandeln trotz verschiedener Kompetenzbereiche zwischen den Teams mit unterschiedlichen Standpunkten ist. Es werden immer wieder gemeinsame Projekte bearbeitet oder inhaltliche Überschneidungen beeinflussen die Arbeit des Teams. Dabei war das Protokollieren ein wesentlicher Bestandteil der Koordination, da hier die wichtigsten Terme, Ergebnisse und Aufgaben festgehalten wurden. Dadurch sollte eine optimale Arbeitsteilung ohne doppelten Arbeitsaufwand zwischen den Teams erzielt werden.
+Diese Arbeitstätigkeit bietet für mich die Gelegenheit, in einen Beruf, eine Team 'hineinzuschnuppern'. Dabei habe ich wichtige Erfahrungen gesammelt und herausgefunden, in welchem Bereich ich gearbeitet habe. Gleichzeitig bietet sich für diese Arbeitstätigkeit die Chance, ich intensiv kennenzulernen. So kann wertvolle Kontakte für die Zukunft entstehen. Meine Erwartung an diese Arbeitstätigkeit war sehr deutlich, dass ich die während meines Studium in China erworbenen Programmierkenntnisse anwenden und speziell in C\# und .NET viel auszunutzen und weiter lernen und die Kenntnisse von Bildverarbeitung mehr kennenzulernen. 
+Aufgrund fast drei Jahre Teiltätigkeiten in diesem Projekt an der Hochschule Hannover habe ich insgesamt ein enormer Erfahrungsgewinn. Dies bezieht sich vor allem auf die inhaltliche Auseinandersetzung mit den Themen Bildverarbeitung, Objekterkennung, Machine Learning und Daten Bank. Diese Tätigkeit erweiterte mein Wissen, wie z.B. viele Sache muss eindenken, wenn eine Gruppe zusammen arbeiten, VCS (Version Control System) wurde sehr nützlich. Bei den Besprechungen mit Fachkräften und Kollegen, die zur aktuellen und geplanten Arbeiten und bei Veranstaltungen stattfanden, wurde für mich insbesondere deutlich, wie die Prozesse nicht nur in unserem Team Hochschule Hannover sondern auch in allen Partnern an diesem Projekt laufen, z.B. monatlich Tele-Konferenz. Außerdem lernte ich, wie wichtig das Dokumentiren von vorgängigen und aktuellen Arbeiten, und eine gute Abteilung ist sehr wichtig, weil sonst werden die Mitarbeiter/Mitarbeiterin wurden immer Doppel-Arbeiten erledigen. Es wird sehr stark Arbeitsablauf beeinflussen. 
 
 
 \section{Auswirkungen auf die eigene Berufsvorstellung}
@@ -247,7 +267,7 @@ Das Praktikum beim EG-CN-62 im Bereich Validation der E/E Komponente und Funktio
 
 
 \section{Bewertung der eigenen Leistungen}
-Mein Fleiß und meine Arbeitsmoral waren während des gesamten Praktikums sehr gut und hoch. Die Akzeptanz meiner Persönlichkeit und meine berufliche Fähigkeit wurden von allen Kollegen, die in meinem Team und in anderen Abteilungen arbeiten, gefördert. Ich fühlte mich stets gefordert und habe deswegen auch meine Motivation bis zum Ende halten können. Bei der Durchführung des Upgrades der Software und Austausches der Hardware habe ich mich am Anfang des Praktikums manchmal unsicher gefühlt, weil die Schritte dafür sich teilweise als schwierig und eigenartig gestaltet haben. Dies konnte ich aber im Laufe meines Praktikums entschärfen, indem ich über die Schritte und Methode nochmals mit meinem Team diskutiert habe und um Rat gefragt habe. Dadurch konnten weitere Schritte geklärt werden. Bei der Lösung dieses Problems möchte ich allen Kollegen danken, da sie ihre Erfahrungen mit mir ausgetauscht haben. Das erlaubte mir, ein Problem mit unterschiedlichen Lösungen zu behandeln. Trotz dieser kleineren Schwierigkeiten habe ich mich bei der Erfüllung meiner Aufgaben wohl gefühlt und mich von meiner Seite gut in das Team integriert. Mein Team erlaubte mir, für ein Fahrzeug, Mini Cooper Clubman (Siehe Abb. 17) vollständig die Verantwortung zu übernehmen. Jedes Mal, wenn ich auf ein Problem traf, boten Sie mir ausgezeichnete Lösungen an. Danke für das Vertrauen und großzügige Unterstützung von meinem Team. 
+ Initiative, Leistungswillen, Fleiß und Arbeitsmoral waren ich während des gesamten Arbeitsraum immer bei mir. Die Akzeptanz meiner Persönlichkeit und meine berufliche Fähigkeit wurden von allen Kollegen, die in meinem Team und in anderen Abteilungen arbeiten, gefördert. Ich fühlte mich stets gefordert und habe deswegen auch meine Motivation bis zum Ende halten können. Bei der Durchführung des Softwareentwicklung und Compute Vision habe ich mich am Anfang des Arbeit manchmal unsicher gefühlt, weil die Schritte dafür sich teilweise als schwierig und eigenartig gestaltet haben. Dies konnte ich aber im Laufe meiner Arbeit entschärfen, indem ich über die Schritte und Methode nochmals mit meinem Team diskutiert habe und um Rat gefragt habe. Dadurch konnten weitere Schritte geklärt werden. Bei der Lösung dieses Problems möchte ich allen Kollegen danken, da sie ihre Erfahrungen mit mir ausgetauscht haben. Das erlaubte mir, ein Problem mit unterschiedlichen Lösungen zu behandeln. Trotz dieser kleineren Schwierigkeiten habe ich mich bei der Erfüllung meiner Aufgaben wohl gefühlt und mich von meiner Seite gut in das Team integriert. Mein Team erlaubte mir, für ein Fahrzeug, Mini Cooper Clubman (Siehe Abb. 17) vollständig die Verantwortung zu übernehmen. Jedes Mal, wenn ich auf ein Problem traf, boten Sie mir ausgezeichnete Lösungen an. Danke für das Vertrauen und großzügige Unterstützung von meinem Team. 
 
 \section{Rückmeldung des Arbeitgebers}
 Zum Ende meines Praktikums hat ein Abschlussgespräch mit meinem Betreuer und dem Team stattgefunden, in dem ich meine Erfahrungen reflektieren sollte und eine Bewertung meiner Arbeitsleistung erhalten habe. Hierbei ging es vordergründig um die Aufgabe der Validation der E/E Komponente laut der I-Stufe und die Funktionentests laut EHB. Dabei wurde besonders hervorgehoben, dass meine Arbeitsleistung im FIT Team sehr gut war. Von meinem Betreuer wurde des Weiteren geschätzt, dass ich eigene Ideen und Vorstellungen in meine Arbeit eingebracht habe und die mir gestellten Aufgaben eigenständig ausgeführt habe.

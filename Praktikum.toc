@@ -22,7 +22,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.2.3}GUI: Web-Lokal-Steuerung}{6}{subsection.3.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.4}Fuzzy Search}{7}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.4}Fuzzy Search}{8}{subsection.3.2.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.2.5}Rest Server}{8}{subsection.3.2.5}
 \defcounter {refsection}{0}\relax 

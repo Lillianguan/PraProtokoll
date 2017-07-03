@@ -33,6 +33,13 @@
       \verb https://en.wikipedia.org/wiki/Support_vector_machine
       \endverb
     \endentry
+    \entry{6}{online}{}
+      \field{sortinit}{}
+      \field{sortinithash}{495dc9894017a8b12cafa9c619d10c0c}
+      \verb{url}
+      \verb www.packtpub.com
+      \endverb
+    \endentry
     \entry{1}{online}{}
       \field{sortinit}{H}
       \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
@@ -40,6 +47,15 @@
       \field{title}{Hier ist ein Eingang für diesen Projekt.}
       \verb{url}
       \verb http://wiki.bgbm.org/standapherb/index.php/Main_Page
+      \endverb
+    \endentry
+    \entry{8}{oline}{}
+      \field{sortinit}{J}
+      \field{sortinithash}{c86bd6cced82a15683b396c2169909ef}
+      \field{labeltitlesource}{title}
+      \field{title}{JSON}
+      \verb{url}
+      \verb http://www.json.org/
       \endverb
     \endentry
     \entry{2}{misc}{}
